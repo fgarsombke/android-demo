@@ -20,6 +20,7 @@ public class MenuActivity extends Activity {
     Button tutorial2 = (Button) findViewById(R.id.listViewButton);
     Button tutorial3 = (Button) findViewById(R.id.imageViewButton);
     Button tutorial4 = (Button) findViewById(R.id.customViewButton);
+    Button surfaceViewButton = (Button) findViewById(R.id.surfaceViewButton);
 
     tutorial1.setOnClickListener(new View.OnClickListener() {
       @Override
@@ -49,6 +50,14 @@ public class MenuActivity extends Activity {
       @Override
       public void onClick(View v) {
         Intent intent = new Intent("com.h2lo.TUTORIALFOUR");
+        startActivity(intent);
+      }
+    });     
+
+    surfaceViewButton.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        Intent intent = new Intent("com.h2lo.SURFACEVIEW");
         startActivity(intent);
       }
     });     

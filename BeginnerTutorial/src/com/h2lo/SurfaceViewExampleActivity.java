@@ -100,7 +100,6 @@ public class SurfaceViewExampleActivity extends Activity implements OnTouchListe
     Thread t = null;
     SurfaceHolder surfaceHolder;
     boolean isItOk = false;
-    boolean spriteLoaded = false;
     
     public OurView(Context context) {
       super(context);
@@ -110,14 +109,11 @@ public class SurfaceViewExampleActivity extends Activity implements OnTouchListe
     @Override
     @SuppressLint("WrongCall")
     public void run() {
+      sprite = new Sprite(this, blob);
       while(isItOk) {
         // perform canvas drawing
         if(!surfaceHolder.getSurface().isValid()) {
           continue;
-        }
-        if(!spriteLoaded) {
-          sprite = new Sprite(this, blob);
-          spriteLoaded = true;
         }
         Canvas canvas = surfaceHolder.lockCanvas();
         onDraw(canvas);
